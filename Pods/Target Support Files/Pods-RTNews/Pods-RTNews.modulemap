@@ -1,0 +1,6 @@
+framework module Pods_RTNews {
+  umbrella header "Pods-RTNews-umbrella.h"
+
+  export *
+  module * { export * }
+}
