@@ -18,6 +18,9 @@ class TodayTableViewController: UITableViewController {
         
         //load data
         loadAllPostsData()
+        
+        //setup refresh control
+        self.refreshControl?.addTarget(self, action: #selector(self.handleRefresh), for: .valueChanged)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -78,7 +81,27 @@ class TodayTableViewController: UITableViewController {
     func configure(_ cell: PostTableViewCell, at indexPath: IndexPath) {
         // Fetch Post
         let post = fetchedResultsController.object(at: indexPath)
-        cell.configureWith(post: post)
+        cell.configureWith(post: post, moc: managedObjectContext) {(type:ButtonCallbackType) in
+            switch type {
+            case .share:
+                // text to share
+                let text = "This is some text that I want to share."
+                
+                // set up activity view controller
+                let textToShare = [ text ]
+                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+                
+                // exclude some activity types from the list (optional)
+                activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
+                
+                // present the view controller
+                self.present(activityViewController, animated: true, completion: nil)
+                
+            case .like:
+                break
+            }
+        }
     }
     
     //MARK: - API Calls
@@ -93,7 +116,7 @@ class TodayTableViewController: UITableViewController {
         getAllPosts()
         fetch()
         self.tableView.reloadData()
-        refreshControl?.endRefreshing()
+        self.refreshControl?.endRefreshing()
     }
     
     func getAllPosts() {

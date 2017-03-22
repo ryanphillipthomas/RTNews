@@ -11,12 +11,14 @@ import CoreData
 
 class TodayRootViewController: UIViewController {
     var managedObjectContext:NSManagedObjectContext!
-
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var dayOfWeekLabel: UILabel!
+    @IBOutlet weak var monthDateLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-
+        setupHeaderView()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -28,6 +30,12 @@ class TodayRootViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Top Header View
+    func setupHeaderView() {
+        logoImageView.layer.cornerRadius = 5.0
+        logoImageView.clipsToBounds = true
     }
     
 
