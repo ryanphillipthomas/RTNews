@@ -25,4 +25,11 @@ public class APIManager {
             responseCallback(response)
         }
     }
+    
+    public class func photos(responseCallback:@escaping(DataResponse<Any>) -> ()){
+        let urlString = baseURL + "photos"
+        Alamofire.request(urlString, method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON { (response) in
+            responseCallback(response)
+        }
+    }
 }

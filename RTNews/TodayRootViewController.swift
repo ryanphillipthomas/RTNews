@@ -34,19 +34,12 @@ class TodayRootViewController: UIViewController {
     
     // MARK: - Top Header View
     func setupHeaderView() {
+        dayOfWeekLabel.text = StringHelper.dayOfWeekString(date: Date.init())
+        monthDateLabel.text = StringHelper.monthDateString(date: Date.init())
+
         logoImageView.layer.cornerRadius = 5.0
         logoImageView.clipsToBounds = true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

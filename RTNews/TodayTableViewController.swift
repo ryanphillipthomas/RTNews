@@ -78,6 +78,11 @@ class TodayTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let post = fetchedResultsController.object(at: indexPath)
+        performSegue(withIdentifier: "PostDetailViewController", sender: post)
+    }
+    
     func configure(_ cell: PostTableViewCell, at indexPath: IndexPath) {
         // Fetch Post
         let post = fetchedResultsController.object(at: indexPath)
@@ -85,14 +90,12 @@ class TodayTableViewController: UITableViewController {
             switch type {
             case .share:
                 // text to share
-                let text = "This is some text that I want to share."
+                let text = "Hello"
                 
                 // set up activity view controller
-                let textToShare = [ text ]
+                let textToShare = [text]
                 let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-                activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-                
-                // exclude some activity types from the list (optional)
+                activityViewController.popoverPresentationController?.sourceView = self.view
                 activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
                 
                 // present the view controller
@@ -104,49 +107,30 @@ class TodayTableViewController: UITableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PostDetailViewController", let postDetailTableViewController = segue.destination as? PostDetailViewController, let post = sender as? Post {
+            postDetailTableViewController.post = post
+        }
+    }
+    
     //MARK: - API Calls
     func loadAllPostsData() {
         fetch()
         self.tableView.reloadData()
         //updateView()
-        getAllPosts()
+        getAllTodayData()
     }
     
     func handleRefresh() {
-        getAllPosts()
+        getAllTodayData()
         fetch()
         self.tableView.reloadData()
-        self.refreshControl?.endRefreshing()
     }
     
-    func getAllPosts() {
+    func getAllTodayData() {
         Post.all(moc: self.managedObjectContext) { (posts, response) in
             self.refreshControl?.endRefreshing()
         }
-        
-    func unwindToTableViewController(_ segue: UIStoryboardSegue) {
-        
-    }
-        
-        
-//        Student.allWithNextUpcomingSession(moc: self.managedObjectContext) { (students, response) in
-//            self.refreshControl.endRefreshing()
-//            self.hideLoadingView()
-//            switch response.result {
-//            case .success:
-//                break
-//            case .failure(let error):
-//                let networkError = APINetworkingError(responseData: response.data, responseError: error)
-//                switch networkError.parseNetworkErrorResponse() {
-//                case .apiError(let msg):
-//                    if let msg = msg { AlertHelper.showAlert(title: msg, controller: self) }
-//                case .networkError(let msg):
-//                    if let msg = msg { AlertHelper.showAlert(title: msg, controller: self) }
-//                case .offlineError(let msg):
-//                    if let msg = msg { AlertHelper.showAlert(title: msg, controller: self) }
-//                }
-//            }
-//        }
     }
 }
 
@@ -157,7 +141,6 @@ extension TodayTableViewController: NSFetchedResultsControllerDelegate {
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
-        //updateView()
     }
     
     

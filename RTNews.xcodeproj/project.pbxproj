@@ -28,6 +28,10 @@
 		944536731E80D99C004E6CE0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 944536721E80D99C004E6CE0 /* Alamofire.framework */; };
 		944A6CE91E80D3F4004AAB26 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944A6CE71E80D3F4004AAB26 /* APIManager.swift */; };
 		947479D51E825A1D00384ECE /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947479D41E825A1D00384ECE /* PostDetailViewController.swift */; };
+		947479DC1E82659600384ECE /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947479DB1E82659600384ECE /* Photo.swift */; };
+		947479DE1E8265CE00384ECE /* PhotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947479DD1E8265CE00384ECE /* PhotoTests.swift */; };
+		94AE9D381E82686700799173 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947479DB1E82659600384ECE /* Photo.swift */; };
+		94AE9D391E8268D000799173 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944A6CE71E80D3F4004AAB26 /* APIManager.swift */; };
 		C29842FF6D81FE74340AADDF /* Pods_RTNewsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2319D788B74C29BA42B4AB0E /* Pods_RTNewsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +80,8 @@
 		944536721E80D99C004E6CE0 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		944A6CE71E80D3F4004AAB26 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		947479D41E825A1D00384ECE /* PostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
+		947479DB1E82659600384ECE /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		947479DD1E8265CE00384ECE /* PhotoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTests.swift; sourceTree = "<group>"; };
 		991816760E467C08DD5B0369 /* Pods-RTNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-RTNews/Pods-RTNews.release.xcconfig"; sourceTree = "<group>"; };
 		B621F7C1FBE7498AC652993E /* Pods-RTNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTNewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RTNewsTests/Pods-RTNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BA9763449EA3A0DDA78CB88D /* Pods-RTNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RTNews/Pods-RTNews.debug.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +175,7 @@
 			children = (
 				74B95EBD1DFB735400B03661 /* PostTests.swift */,
 				74B95EBF1DFB735400B03661 /* Info.plist */,
+				947479DD1E8265CE00384ECE /* PhotoTests.swift */,
 			);
 			path = RTNewsTests;
 			sourceTree = "<group>";
@@ -212,6 +219,7 @@
 		74B95ED91DFB73A000B03661 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				947479DB1E82659600384ECE /* Photo.swift */,
 				944A6CE71E80D3F4004AAB26 /* APIManager.swift */,
 				94145C721E80E0AC007545EE /* Post.swift */,
 				94145C6F1E80DC5D007545EE /* RTNews.xcdatamodeld */,
@@ -564,6 +572,7 @@
 				74B95EA61DFB735300B03661 /* AppDelegate.swift in Sources */,
 				947479D51E825A1D00384ECE /* PostDetailViewController.swift in Sources */,
 				94145C711E80DC5D007545EE /* RTNews.xcdatamodeld in Sources */,
+				947479DC1E82659600384ECE /* Photo.swift in Sources */,
 				94145C7D1E80F9B6007545EE /* TodayTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,7 +581,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94AE9D391E8268D000799173 /* APIManager.swift in Sources */,
+				94AE9D381E82686700799173 /* Photo.swift in Sources */,
 				74B95EBE1DFB735400B03661 /* PostTests.swift in Sources */,
+				947479DE1E8265CE00384ECE /* PhotoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

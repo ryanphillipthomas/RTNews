@@ -46,14 +46,6 @@ public class Post: ManagedObject {
             post.userId = userId
             post.body = postDictionary["body"] as? String
             post.title = postDictionary["title"] as? String
-
-// DEV TODO Create relationships
-//         let userPredicate = NSPredicate(format: "id == %@", userId)
-//         let user = User.findOrFetchInContext(moc: moc, matchingPredicate: userPredicate)
-//           if let user = user {
-//            post.user = user
-//          }
-
     }
         
         return post

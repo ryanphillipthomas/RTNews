@@ -24,3 +24,17 @@ class RootHelper{
         }
     }
 }
+
+class StringHelper {
+    class func dayOfWeekString(date : Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: date)
+    }
+    
+    class func monthDateString(date : Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM"
+        return dateFormatter.string(from: date)
+    }
+}

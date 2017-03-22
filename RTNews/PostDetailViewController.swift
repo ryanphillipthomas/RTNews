@@ -11,11 +11,21 @@ import CoreData
 
 class PostDetailViewController: UIViewController {
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var postTitle: UILabel!
+    @IBOutlet weak var body: UILabel!
+    
+    var post:Post!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        configureWith(post: post)
+    }
+    
+    func configureWith(post: Post) {
+        self.postTitle.text = post.title
+        if let body = post.body { self.body.text = body }
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,22 +35,5 @@ class PostDetailViewController: UIViewController {
     
     @IBAction func didSelectClose(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-extension PostDetailViewController : PostCell {
-    func configureWith(post: Post, moc: NSManagedObjectContext, buttonCallback: ((ButtonCallbackType) -> Void)?) {
-        //
     }
 }
