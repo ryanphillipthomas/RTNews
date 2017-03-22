@@ -27,6 +27,7 @@
 		94308AB51E82429A00AEDAD9 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94308AB41E82429A00AEDAD9 /* PostCell.swift */; };
 		944536731E80D99C004E6CE0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 944536721E80D99C004E6CE0 /* Alamofire.framework */; };
 		944A6CE91E80D3F4004AAB26 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944A6CE71E80D3F4004AAB26 /* APIManager.swift */; };
+		947479D51E825A1D00384ECE /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947479D41E825A1D00384ECE /* PostDetailViewController.swift */; };
 		C29842FF6D81FE74340AADDF /* Pods_RTNewsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2319D788B74C29BA42B4AB0E /* Pods_RTNewsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		94308AB41E82429A00AEDAD9 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		944536721E80D99C004E6CE0 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		944A6CE71E80D3F4004AAB26 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		947479D41E825A1D00384ECE /* PostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		991816760E467C08DD5B0369 /* Pods-RTNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-RTNews/Pods-RTNews.release.xcconfig"; sourceTree = "<group>"; };
 		B621F7C1FBE7498AC652993E /* Pods-RTNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTNewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RTNewsTests/Pods-RTNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BA9763449EA3A0DDA78CB88D /* Pods-RTNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RTNews/Pods-RTNews.debug.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 		74B95EDC1DFB73BC00B03661 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				947479D41E825A1D00384ECE /* PostDetailViewController.swift */,
 				94145C7C1E80F9B6007545EE /* TodayTableViewController.swift */,
 				94145C7E1E80F9FD007545EE /* TodayRootViewController.swift */,
 			);
@@ -559,6 +562,7 @@
 				94145C751E80E0AD007545EE /* Post.swift in Sources */,
 				94308AB51E82429A00AEDAD9 /* PostCell.swift in Sources */,
 				74B95EA61DFB735300B03661 /* AppDelegate.swift in Sources */,
+				947479D51E825A1D00384ECE /* PostDetailViewController.swift in Sources */,
 				94145C711E80DC5D007545EE /* RTNews.xcdatamodeld in Sources */,
 				94145C7D1E80F9B6007545EE /* TodayTableViewController.swift in Sources */,
 			);

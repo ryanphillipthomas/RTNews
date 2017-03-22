@@ -124,6 +124,10 @@ class TodayTableViewController: UITableViewController {
             self.refreshControl?.endRefreshing()
         }
         
+    func unwindToTableViewController(_ segue: UIStoryboardSegue) {
+        
+    }
+        
         
 //        Student.allWithNextUpcomingSession(moc: self.managedObjectContext) { (students, response) in
 //            self.refreshControl.endRefreshing()

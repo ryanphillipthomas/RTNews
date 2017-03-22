@@ -114,12 +114,12 @@
         <scene sceneID="zir-3V-y4O">
             <objects>
                 <tableViewController id="Nn4-8I-520" customClass="TodayTableViewController" customModule="RTNews" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="581" sectionHeaderHeight="28" sectionFooterHeight="28" id="IFE-kI-YfH">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="581" sectionHeaderHeight="28" sectionFooterHeight="28" id="IFE-kI-YfH">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="535"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="581" id="nru-Vu-ofI" customClass="PostTableViewCell" customModule="RTNews" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="postCell" rowHeight="581" id="nru-Vu-ofI" customClass="PostTableViewCell" customModule="RTNews" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="343" height="581"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nru-Vu-ofI" id="YKh-je-bfD">
@@ -167,7 +167,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOj-rY-yO4">
                                                     <rect key="frame" x="0.0" y="404" width="343" height="138"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EHc-5p-hnE">
+                                                        <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cnn" translatesAutoresizingMaskIntoConstraints="NO" id="EHc-5p-hnE">
                                                             <rect key="frame" x="0.0" y="6" width="96" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="96" id="GP3-o9-J0V"/>
@@ -245,6 +245,7 @@
                                     <outlet property="postTitleLabel" destination="Fba-SI-yFg" id="yjt-Yh-ZMT"/>
                                     <outlet property="shareButton" destination="jSP-tY-mk5" id="Tli-w9-3zL"/>
                                     <outlet property="sinceDateLabel" destination="Zfz-9a-RQX" id="IZz-C6-Fku"/>
+                                    <segue destination="bea-YZ-S5H" kind="presentation" id="5WJ-tZ-fnl"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -262,8 +263,98 @@
             </objects>
             <point key="canvasLocation" x="845.60000000000002" y="166.8665667166417"/>
         </scene>
+        <!--Post Detail View Controller-->
+        <scene sceneID="jJR-g1-m4c">
+            <objects>
+                <viewController id="bea-YZ-S5H" customClass="PostDetailViewController" customModule="RTNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mtt-yZ-hCA"/>
+                        <viewControllerLayoutGuide type="bottom" id="O72-16-QXJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2xJ-OL-JHf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APE-Ic-Out">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="sBr-Jz-F0P"/>
+                                </constraints>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem title="Title" id="wWN-Tx-pvv">
+                                        <barButtonItem key="rightBarButtonItem" title="Close" id="yg5-YI-K42">
+                                            <connections>
+                                                <action selector="didSelectClose:" destination="bea-YZ-S5H" id="JfG-hr-b4N"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RTNewsLogo" translatesAutoresizingMaskIntoConstraints="NO" id="kFC-lN-Llo">
+                                <rect key="frame" x="0.0" y="44" width="375" height="359"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="359" id="v6q-lb-oiW"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rg-fK-LGW">
+                                <rect key="frame" x="8" y="431" width="64" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="mcl-Nn-TCe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwU-O9-DXz">
+                                <rect key="frame" x="8" y="460" width="359" height="124"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="124" id="Zm9-mX-P75"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbA-gt-rmL">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Wwx-Qc-CN1"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Item" id="pyM-Tt-Q1S"/>
+                                </items>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="APE-Ic-Out" secondAttribute="trailing" id="1pX-El-hwW"/>
+                            <constraint firstItem="OwU-O9-DXz" firstAttribute="leading" secondItem="2xJ-OL-JHf" secondAttribute="leading" constant="8" id="2AX-dX-Ifu"/>
+                            <constraint firstItem="O72-16-QXJ" firstAttribute="top" secondItem="RbA-gt-rmL" secondAttribute="bottom" id="2H2-y4-ISS"/>
+                            <constraint firstAttribute="trailing" secondItem="OwU-O9-DXz" secondAttribute="trailing" constant="8" id="5vX-GP-ig0"/>
+                            <constraint firstItem="5Rg-fK-LGW" firstAttribute="leading" secondItem="2xJ-OL-JHf" secondAttribute="leading" constant="8" id="6qV-IB-M9r"/>
+                            <constraint firstItem="RbA-gt-rmL" firstAttribute="top" secondItem="OwU-O9-DXz" secondAttribute="bottom" constant="39" id="7q8-CK-I0m"/>
+                            <constraint firstItem="5Rg-fK-LGW" firstAttribute="top" secondItem="kFC-lN-Llo" secondAttribute="bottom" constant="28" id="E5P-fc-T0v"/>
+                            <constraint firstItem="kFC-lN-Llo" firstAttribute="leading" secondItem="2xJ-OL-JHf" secondAttribute="leading" id="GGT-tN-CrZ"/>
+                            <constraint firstItem="RbA-gt-rmL" firstAttribute="leading" secondItem="2xJ-OL-JHf" secondAttribute="leading" id="S5I-2u-arU"/>
+                            <constraint firstItem="kFC-lN-Llo" firstAttribute="top" secondItem="APE-Ic-Out" secondAttribute="bottom" id="bqK-9F-zVN"/>
+                            <constraint firstAttribute="trailing" secondItem="kFC-lN-Llo" secondAttribute="trailing" id="dXx-NM-aBg"/>
+                            <constraint firstItem="APE-Ic-Out" firstAttribute="leading" secondItem="2xJ-OL-JHf" secondAttribute="leading" id="dzV-6t-0Mc"/>
+                            <constraint firstAttribute="trailing" secondItem="RbA-gt-rmL" secondAttribute="trailing" id="l7t-9T-QAl"/>
+                            <constraint firstItem="APE-Ic-Out" firstAttribute="top" secondItem="mtt-yZ-hCA" secondAttribute="bottom" id="tco-5J-foe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="rightBarButtonItem" destination="yg5-YI-K42" id="uU9-m6-Ucx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J5S-1W-mB5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1680.8" y="166.8665667166417"/>
+        </scene>
     </scenes>
     <resources>
         <image name="RTNewsLogo" width="512" height="512"/>
+        <image name="cnn" width="62" height="30"/>
     </resources>
 </document>

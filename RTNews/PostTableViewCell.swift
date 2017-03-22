@@ -41,6 +41,9 @@ class PostTableViewCell: UITableViewCell {
     @IBAction func didSelectShareAction(_ sender: Any) {
         buttonCallback?(ButtonCallbackType.share)
     }
+    
+    @IBAction func didSelectClose(_ sender: Any) {
+    }
 }
 
 extension PostTableViewCell : PostCell {
