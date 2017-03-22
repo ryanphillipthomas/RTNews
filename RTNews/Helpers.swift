@@ -34,7 +34,7 @@ class StringHelper {
     
     class func monthDateString(date : Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM d"
+        dateFormatter.dateFormat = "MMMM"
         return dateFormatter.string(from: date)
     }
 }
